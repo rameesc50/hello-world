@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('one') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'echo hello world'
+                    } else {
+                        bat 'echo hello world'
+                    }
+                }
+            }
+        }
+    }
+}
